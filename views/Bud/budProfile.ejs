@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>BuddyVerse</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <!-- <link href="" rel="icon">
+    <link href="" rel="apple-touch-icon"> -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/home/home.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+  <header>            
+    <!--Veerti-->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        margin-top: 0%;
+      }
+      body {
+        margin: 0;
+        text-align: center; 
+      }
+      .navigationbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: #f8f7fc; /* Light Background */
+        padding: 12px 20px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        position: fixed; /* Fixes navbar to the top */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Ensures navbar is above other elements */
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #9C27B0;
+        text-decoration: none;
+      }
+
+      .buddyverse {
+        color: #9C27B0;
+        font-weight: 800;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+      .nav-links b:hover {
+        color: #ff00bf;
+      }
+    </style>
+        <nav class="navigationbar">
+          <div class="logo">
+            <img src="images/black_BuddyVerse.png" alt="Logo" class="logo-icon">
+              <span class="buddyverse"style="color: #9c226f;">BUDDYVERSE</span>
+            </a>
+          </div> 
+          <ul class="nav-links">
+            <li><a href="/home-Bud" style="color: #9c226f;"><b>Home</b></a></li>
+            <li><a href="/bud-redirect-to-stream" style="color: #9c226f;"><b>Study Material</b></a></li>
+          </ul>
+        </nav>
+        <!--Veerti-->
+
+  </nav>
+  </header>
+       
+    <style>
+      body {
+          text-align: center;
+          font-family: Arial, sans-serif;
+          margin-top: 100px;
+          position: relative;
+      }
+
+      .container {
+          position: relative;
+          display: inline-block;
+      }
+
+      .medicare {
+          font-size: 125px;
+          font-weight: bold;
+          color: rgba(102, 102, 255, 0.3); /* Light purple faded effect */
+          text-transform: uppercase;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          white-space: nowrap;
+      }
+
+      .best-medical {
+          font-size: 90px;
+          font-weight: bold;
+          font-style: italic;
+          color: black;
+          text-transform: uppercase;
+          position: relative;
+          margin-top: 80px;
+      }
+
+      .treatment-center {
+          font-size: 90px;
+          font-weight: bold;
+          color: #6666ff; /* Bold purple */
+          text-transform: uppercase;
+          position: relative;
+      }
+
+      .prof {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh; /* Full viewport height */
+        flex-direction: column; /* Ensure elements are stacked properly */
+    }
+
+      /* Ensure the sidebar toggler icon is visible */
+      .sidebar-nav .nav-link i {
+        margin-right: 5px;
+      }
+  </style>
+</head>
+
+<section id="prof">
+    <div class="pagetitle">
+      <% if (Object.keys(errmessages).length > 0) { %>
+        <div class="errmessages">
+          <% Object.keys(errmessages).forEach(function (type) { %>
+            <% errmessages[type].forEach(function (errmessage) { %>
+              <div class="alert alert-<%= type %>">
+                <%= errmessage %>
+              </div>
+            <% }) %>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+              <i class="bi bi-person-circle" style="font-size: xx-large;"></i>
+              <h2><%= BudName %></h2>
+              <h3>Bud</h3>
+            </div>
+          </div>
+    
+          <div class="card mt-3">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#assigned-buddy">Assigned Buddy</button>
+                </li>
+              </ul>
+    
+              <div class="tab-content pt-2">
+                <!-- Overview Tab -->
+                <div class="tab-pane fade show active" id="profile-overview">
+                  <h5 class="card-title" style="color: #9c226f;"><b>Profile Details</b></h5>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label" style="color: #9c226f;">Name</div>
+                    <div class="col-lg-9 col-md-8"><%= BudName %></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label" style="color: #9c226f;">Phone</div>
+                    <div class="col-lg-9 col-md-8"><%= BudContactNumber %></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label" style="color: #9c226f;">Email</div>
+                    <div class="col-lg-9 col-md-8"><%= BudEmail %></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label" style="color: #9c226f;">Stream</div>
+                    <div class="col-lg-9 col-md-8"><%= BudStream %></div>
+                  </div>
+                </div>
+    
+                <!-- Assigned Buddy Tab -->
+                <div class="tab-pane fade" id="assigned-buddy">
+                  <h5 class="card-title" style="color: #9c226f;"><b>Assigned Buddy</b></h5>
+                  <% if (AssignedBuddy) { %>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label" style="color: #9c226f;">Buddy ID</div>
+                      <div class="col-lg-9 col-md-8"><%= AssignedBuddy.BuddyID %></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-4 label" style="color: #9c226f;">Name</div>
+                      <div class="col-lg-9 col-md-8"><%= AssignedBuddy.BuddyName %></div>
+                    </div>
+                  <% } else { %>
+                    <p>No assigned Buddy</p>
+                  <% } %>
+                </div>
+              </div>
+              <!-- End Bordered Tabs -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  <br>
+  <br><a href="/logout-Bud" class="button button-accent">Log Out</a>
+  <br>  <br>  <br>  <br>  <br>
+</section>
+    
+<footer class="footer">
+  <div class="footer-container">
+      <!-- Branding & Logo -->
+      <div class="footer-branding">
+          <img src="/images/white_BuddyVerse.png" alt="BuddyVerse Logo">
+          <div>
+              <h4><b>BuddyVerse</b></h4>
+              <p>Our mission is to ensure that every newcomer feels welcomed, empowered, and ready<br>to conquer their academic journey.</p>
+          </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-contact">
+        <h5>CONTACT US</h5>
+        <p><i class="bi-globe"></i> Colaba, Mumbai</p>
+        <p><i class="bi-phone-fill"></i> <a href="tel:+917764839402">+91 77648 39402</a></p>
+    </div>
+  </div>
+
+  <!-- Separator Line -->
+  <hr class="footer-line">
+
+  <!-- Social Media & Copyright -->
+  <div class="footer-bottom">
+      
+      <p>© 2025 by <span>BuddyVerse</span> | All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- CSS -->
+<style>
+  /* Footer Base Styles */
+  .footer {
+      background-image: url('/images/footer.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+  }
+
+  /* Footer Container */
+  .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+  }
+
+  /* Branding */
+  .footer-branding {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      margin-left: 1px ;
+  }
+
+  .footer-branding img {
+      height: 100px;
+      margin-right: 15px;
+  }
+
+  .footer-branding h4 {
+      color: #8a75ff;
+      margin: 0;
+  }
+
+  .footer-branding p {
+      text-transform: uppercase;
+      font-size: 12px;
+      opacity: 0.8;
+      margin: 0;
+  }
+
+  /* Contact Section */
+  .footer-contact {
+      text-align: right;
+  }
+
+  .footer-contact h5 {
+      color: #8a75ff;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .footer-contact p {
+      margin: 5px 0;
+  }
+
+  .footer-contact a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+  }
+
+  .footer-contact a:hover {
+      color: #8a75ff;
+  }
+
+  /* Separator Line */
+  .footer-line {
+      border: none;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.3);
+      width: 100%;
+      margin: 30px 0;
+  }
+
+  /* Social Media Icons */
+  .footer-bottom {
+      text-align: center;
+  }
+
+  .social-icons {
+      margin-bottom: 15px;
+  }
+
+  .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 18px;
+      color: white;
+      transition: 0.3s;
+  }
+
+  .social-icons a:hover {
+      color: #8a75ff;
+      transform: scale(1.1);
+  }
+
+  .footer-bottom p {
+      font-size: 14px;
+      opacity: 0.8;
+  }
+
+  .footer-bottom span {
+      color: #8a75ff;
+      font-weight: bold;
+  }
+</style>
+  
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+        integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"
+        integrity="sha512-tHvUcUQYi35zApvAa5TNR3fNhBQkVtkmWKfacnpxmix4/VTGz1lGjIVyLMp7gLgAvg+aKJjnVKokXJNS5GZ+/g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      // Grab the container
+      const scrollContainer = document.getElementById('scrollContainer');
+  
+      // Configuration for auto-scroll
+      let scrollAmount = 0;
+      const scrollStep = 1;     // How many pixels to move per tick
+      const scrollDelay = 15;   // Milliseconds between scroll ticks
+  
+      function autoScroll() {
+        // Move the scroll position to the right
+        scrollAmount += scrollStep;
+        scrollContainer.scrollLeft = scrollAmount;
+  
+        // If we've reached the end, reset to start
+        if (scrollAmount >= (scrollContainer.scrollWidth - scrollContainer.clientWidth)) {
+          scrollAmount = 0;
+        }
+      }
+  
+      // Start auto-scrolling
+      setInterval(autoScroll, scrollDelay);
+    </script>
+    <script src="/homePage/js/jquery.min.js"></script>
+    <script src="/homePage/js/popper.js"></script>
+    <script src="/homePage/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/home/home.js"></script>
+
+    
+</body>
+
+</html>

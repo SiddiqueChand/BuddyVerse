@@ -1,0 +1,9 @@
+<div class="errmessages">
+   <% Object.keys(errmessages).forEach(function (type) { %>
+      <% errmessages[type].forEach(function (errmessage) { %>
+         <div class="alert alert-<%= type %>">
+            <%= errmessage %>
+         </div>
+      <% }) %>
+   <% }) %>
+</div>

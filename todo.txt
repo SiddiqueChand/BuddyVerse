@@ -1,0 +1,31 @@
+--> Bud buddy Randomizer ()
+
+-->> Tomorrow(Display Registrations on admin side
+            Display succesful Registration
+            Fix Registration page validations)
+
+light blue -3E5879
+dark blue - 213555
+black
+white
+off white - F5EFE7
+beige - D8C4B6
+
+Courses-
+BscIT
+BCom
+BAF
+BBI
+BFM
+BMS
+BA
+BAMMC
+BAFTNMP
+Bsc
+BScBiotech
+BScCs
+Bsc DataScience and BA
+BVoc (Sports and EM)
+BVoc (Web Technologies)
+
+event pixels - 2560 x 1600

@@ -1,0 +1,15 @@
+// // 📌 EASIEST RESET COUNT INSIGHT
+                        // app.get('/reset-downloads', async (req, res) => {
+                        //   try {
+                        //     const PDF = require('./models/pdf'); // adjust path if needed
+
+                        //     await PDF.updateMany({}, { $set: { totalDownloads: 0 } });
+
+                        //     res.send('✅ All PDF download counts reset to 0!');
+                        //   } catch (err) {
+                        //     console.error(err);
+                        //     res.status(500).send('❌ Error resetting counts.');
+                        //   }
+                        // });
+                        
+                        // http://localhost:3000/reset-downloads

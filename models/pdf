@@ -1,0 +1,11 @@
+const mongoose = require("mongoose");
+
+const pdfSchema = new mongoose.Schema({
+  pdfTitle: String,
+  filename: String,
+  data: Buffer,
+  contentType: String,
+  totalDownloads: { type: Number, default: 0 }
+});
+
+module.exports = mongoose.models.Pdf || mongoose.model("Pdf", pdfSchema);

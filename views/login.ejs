@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BuddyVerse Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="/home/home.css" rel="stylesheet" type="text/css">
+
+    <style>
+        body { 
+            background: #f8f9fa; 
+        }
+        
+        .login-card { 
+            max-width: 500px; /* Increased from 400px */
+            margin: 80px auto; /* Adjusted margin */
+            padding: 3rem; /* Increased padding */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            border-radius: 10px; /* Optional: Adds rounded corners */
+            background: white; /* Ensures a clear box background */
+        }
+
+        body { 
+            background-color: #6666ff; /* Light lavender */
+        }
+
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+  
+        .medicare {
+            font-size: 59px;
+            font-weight: bold;
+            color: rgba(102, 102, 255, 0.3); /* Light purple faded effect */
+            text-transform: uppercase;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+  
+        .best-medical {
+            font-size: 55px;
+            font-weight: bold;
+            font-style: italic;
+            color: black;
+            text-transform: uppercase;
+            position: relative;
+            margin-top: 30px;
+        }
+  
+        .treatment-center {
+            font-size: 70px;
+            font-weight: bold;
+            color: #6666ff; /* Bold purple */
+            text-transform: uppercase;
+            position: relative;
+        }
+    </style>
+
+  
+</head>
+<body>
+    <div class="container">
+        <div class="login-card bg-white rounded">
+            <div class="text-center mb-4">
+                <div class="container">
+                    <div class="medicare"><b>BuddyVerse</b></div>
+                    <div class="best-medical"><b>Login</b></div>
+                 </div>               
+                <p class="text-muted"><br>Enter your credentials to continue</p>
+            </div>
+            <br>    
+            <% if (Object.keys(errmessages).length > 0) { %>
+                <div class="errmessages">
+                  <% Object.keys(errmessages).forEach(function (type) { %>
+                    <% errmessages[type].forEach(function (errmessage) { %>
+                      <div class="alert alert-<%= type %>">
+                        <%= errmessage %>
+                      </div>
+                    <% }) %>
+                  <% }) %>
+                </div>
+              <% } %>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username">User ID</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <br>
+                <button type="submit" class="button button-accent" style="width: 150px; height: 60px" >Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

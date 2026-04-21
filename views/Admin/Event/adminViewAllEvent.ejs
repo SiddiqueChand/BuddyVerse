@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>View All Events</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/boxicons/css/boxicons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/remixicon/remixicon.css" rel="stylesheet" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+        <a href="/admin-dashboard" class="logo d-flex align-items-center mx-3">
+            <img src="images/black_BuddyVerse.png" alt="Logo" class="logo-icon">
+            <span class="buddyverse"style="color: #9c226f;">BUDDYVERSE</span>
+        </a>
+    </div>
+    <!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+
+            <!-- End Messages Nav -->
+
+            <li class="nav-item dropdown pe-3">
+
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+
+                    <span class="d-none d-md-block dropdown-toggle ps-2"style="color: #9c226f;">
+          <%=adminUsername%>
+        </span>
+                </a>
+                <!-- End Profile Image Icon -->
+
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                    <li class="dropdown-header">
+                        <h6>
+                            <%=adminUsername%>
+                        </h6>
+
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="/admin-profile">
+                            <i class="bi bi-person"></i>
+                            <span>My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+
+
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="/admin-logout">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Log-Out</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <!-- End Profile Dropdown Items -->
+            </li>
+            <!-- End Profile Nav -->
+
+        </ul>
+    </nav>
+    <!-- End Icons Navigation -->
+
+</header>
+<!-- End Header --> 
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <!-- Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin-dashboard">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- End Dashboard Nav -->
+
+            <!-- Users Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-person"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="users-nav" class="sidebar-nav nav-content collapse " data-bs-parent="#sidebar-nav">
+                    
+                    <!-- Add Users -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Add Users</span>
+                        </a>
+                        <ul id="add-nav" class="nav-content collapse" data-bs-parent="#users-nav">
+                            <li>
+                                <a href="/register-Buddy">
+                                    <i class="bi bi-circle"></i><span>Buddy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register-Bud">
+                                    <i class="bi bi-circle"></i><span>Bud</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- Delete Users -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Delete Users</span>
+                        </a>
+                        <ul id="delete-nav" class="nav-content collapse" data-bs-parent="#users-nav">
+                            <li>
+                                <a href="/unregister-Buddy">
+                                    <i class="bi bi-circle"></i><span>Buddy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/unregister-Bud">
+                                    <i class="bi bi-circle"></i><span>Bud</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Users Nav -->
+
+            <!-- Events Nav -->
+            <li class="nav-item">
+                <a class="nav-link" data-bs-target="#events-nav" data-bs-toggle="collapse" href="#">
+                    <i class='bx bx-notepad'></i><span>Events</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="events-nav" class="sidebar-nav nav-content collapse show" data-bs-parent="#sidebar-nav">
+                    <li class="nav-item">
+                        <a href="/admin-add-new-event">
+                            <i class="bi bi-square"></i><span>Add</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="active" href="/admin-view-all-events">
+                            <i class="bi bi-square"></i><span>View</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Events Nav -->
+
+            <!-- Randomizer Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/randomizer">
+                    <i class="bi-tornado"></i>
+                    <span>Randomizer</span>
+                </a>
+            </li>
+            <!-- End Randomizer Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/insights">
+                    <i class="bi-tornado"></i>
+                    <span>Insights</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/file-upload">
+                    <i class="bi-tornado"></i>
+                    <span>File Uploader</span>
+                </a>
+            </li>
+        </ul>
+
+    </aside>
+    <!-- End Sidebar-->
+
+    <!-- ======= Main ======= -->
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <% if (Object.keys(errmessages).length > 0) { %>
+                <div class="errmessages">
+                  <% Object.keys(errmessages).forEach(function (type) { %>
+                    <% errmessages[type].forEach(function (errmessage) { %>
+                      <div class="alert alert-<%= type %>">
+                        <%= errmessage %>
+                      </div>
+                    <% }) %>
+                  <% }) %>
+                </div>
+              <% } %>
+                <h1     style="color: #9c226f";>Admin Dashboard</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin-dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/admin-view-all-events">View Events</a></li>
+                    </ol>
+                </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <% files.forEach(function(myFile) { %>
+                    <div class="col">
+                        <div class="card" style="height: 80vh">
+                            <img 
+                                class="card-img-top img-fluid" style="height: 45vh"
+                                src="data:myFile/<%=myFile.eventHeroPhoto.contentType%>;base64,
+                                <%=myFile.eventHeroPhoto.data.toString('base64')%>"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title"><%= myFile.eventName %></h5>
+                                <p class="card-text"><%= myFile.eventAbout %></p>
+                            </div>
+                            
+                            <div class="card-footer row mx-auto">
+                             
+                                <form class="col-lg-6 g-3 mb-3 needs-validation" action="/admin-delete-events" method="post" novalidate>
+                                        <input type="text" name="eventID" placeholder="Enter Buddy ID" class="form-control d-none" id="eventID" value="<%= myFile.eventID %>" required>
+                                        <button class="btn btn-primary" style="width: 120px;" type="submit">Delete</button>
+                                </form>
+
+                                <div class="col-lg-6 g-3 mb-3">
+                                    <a href="/admin-view-registrations?eventName=<%= encodeURIComponent(myFile.eventName) %>" class="btn btn-primary" style="width: 130px;">Registrations</a>
+                                  </div>
+
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>               
+            </div>  
+        </section>
+    </main>
+    <!-- Main End -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</html>

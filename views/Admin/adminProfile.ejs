@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Admin Profile</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/boxicons/css/boxicons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/remixicon/remixicon.css" rel="stylesheet" type="text/css">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+    
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+            <a href="/admin-dashboard" class="logo d-flex align-items-center mx-3">
+                <img src="images/black_BuddyVerse.png" alt="Logo" class="logo-icon">
+                <span class="buddyverse"style="color: #9c226f;">BUDDYVERSE</span>
+            </a>
+        </div>
+        <!-- End Logo -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <!-- End Messages Nav -->
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+
+                        <span class="d-none d-md-block dropdown-toggle ps-2"style="color: #9c226f;">
+              <%=adminUsername%>
+            </span>
+                    </a>
+                    <!-- End Profile Image Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6>
+                                <%=adminUsername%>
+                            </h6>
+
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/admin-profile">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/admin-logout">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Log-Out</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <!-- End Profile Dropdown Items -->
+                </li>
+                <!-- End Profile Nav -->
+
+            </ul>
+        </nav>
+        <!-- End Icons Navigation -->
+
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <!-- Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link active" href="/admin-dashboard">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- End Dashboard Nav -->
+
+            <!-- Users Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-person"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="users-nav" class="sidebar-nav nav-content collapse " data-bs-parent="#sidebar-nav">
+                    
+                    <!-- Add Users -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Add Users</span>
+                        </a>
+                        <ul id="add-nav" class="nav-content collapse" data-bs-parent="#users-nav">
+                            <li>
+                                <a href="/register-Buddy">
+                                    <i class="bi bi-circle"></i><span>Buddy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register-Bud">
+                                    <i class="bi bi-circle"></i><span>Bud</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- Delete Users -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Delete Users</span>
+                        </a>
+                        <ul id="delete-nav" class="nav-content collapse" data-bs-parent="#users-nav">
+                            <li>
+                                <a href="/unregister-Buddy">
+                                    <i class="bi bi-circle"></i><span>Buddy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/unregister-Bud">
+                                    <i class="bi bi-circle"></i><span>Bud</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Users Nav -->
+
+           <!-- Event Nav -->
+           <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#events-nav" data-bs-toggle="collapse" href="#">
+                    <i style="font-size: medium;" class='bx bx-notepad'></i><span>Event</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="events-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/admin-add-new-event">
+                            <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin-view-all-events">
+                            <i class="bi bi-circle"></i><span>View</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Events Nav -->
+
+            <!-- Randomizer Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/randomizer">
+                    <i class="bi-shuffle"></i>
+                    <span>Randomizer</span>
+                </a>
+            </li>
+            <!-- End Randomizer Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/insights">
+                    <i class="bi-graph-up-arrow"></i>
+                    <span>Insights</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/file-upload">
+                    <i class="bi-upload"></i>
+                    <span>File Uploader</span>
+                </a>
+            </li>
+        </ul>
+
+    </aside>
+    <!-- End Sidebar-->
+
+    <!-- ======= Main ======= -->
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <% if (Object.keys(errmessages).length > 0) { %>
+                <div class="errmessages">
+                  <% Object.keys(errmessages).forEach(function (type) { %>
+                    <% errmessages[type].forEach(function (errmessage) { %>
+                      <div class="alert alert-<%= type %>">
+                        <%= errmessage %>
+                      </div>
+                    <% }) %>
+                  <% }) %>
+                </div>
+              <% } %>
+                <h1     style="color: #9c226f";>Admin Profile</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin-dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/admin-profile">Profile</a></li>
+                    </ol>
+                </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section profile">
+            <div class="row">
+                <div class="col-xl-4">
+
+                    <div class="card">
+                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                            <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
+                            <i class="bi bi-person-circle" style="font-size: xx-large;"></i>
+
+                            <h2>
+                                <%= adminUsername %>
+                            </h2>
+                            <h3>Admin</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xl-8">
+
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <!-- Bordered Tabs -->
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">
+                              Edit Profile
+                           </button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">
+                              Change Password
+                           </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content pt-2">
+
+                                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                    <h5 class="card-title">Profile Details</h5>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Account Type</div>
+                                        <div class="col-lg-9 col-md-8">Admin</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label ">Username</div>
+                                        <div class="col-lg-9 col-md-8">
+                                            <%= adminUsername %>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label">Phone</div>
+                                        <div class="col-lg-9 col-md-8">
+                                            <%= adminNumber %>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label"> Email</div>
+                                        <div class="col-lg-9 col-md-8">
+                                            <%= adminEmail %>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label"> Stream</div>
+                                        <div class="col-lg-9 col-md-8">
+                                            <%= adminStream %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                                    <!-- Profile Edit Form -->
+                                    <form method="post" action="/admin-profile-edit">
+
+
+                                        <div class="row mb-3">
+                                            <label for="adminUsername" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="adminUsername" type="text" class="form-control" id="adminUsername" value="<%=adminUsername%>">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="adminNumber" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="adminNumber" type="text" class="form-control" id="adminNumber" value="<%=adminNumber%>">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="" adminEmail class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="adminEmail" type="email" class="form-control" id="adminEmail" value="<%=adminEmail%>">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="" adminEmail class="col-md-4 col-lg-3 col-form-label">Stream</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="adminStream" type="text" class="form-control" id="adminStream" value="<%=adminStream%>">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                    <!-- End Profile Edit Form -->
+
+                                </div>
+
+                                <div class="tab-pane fade pt-3" id="profile-change-password">
+                                    <!-- Change Password Form -->
+                                    <form action="/admin-profile-password-change" method="post">
+
+                                        <div class="row mb-3">
+                                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Enter New
+                                    Password</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="adminPassword" type="password" class="form-control" id="renewPassword">
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Change Password</button>
+                                        </div>
+                                    </form>
+                                    <!-- End Change Password Form -->
+                                </div>
+                            </div>
+                            <!-- End Bordered Tabs -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- Main -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+         class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+
+
+</body>
+
+</html>

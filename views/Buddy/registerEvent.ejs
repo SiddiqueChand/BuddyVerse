@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>BuddyVerse - Event Registration</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/home1.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <style>
+
+        .container {
+            max-width: 700px;
+            margin: 6em auto;
+            padding: 2.5em;
+            background-color: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 1.5em;
+        }
+
+        label {
+            font-weight: 500;
+            color: #000000;
+            display: block;
+            text-align: left;
+            margin-bottom: 0.5em;
+        }
+
+        .form-control {
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 1em;
+        }
+
+        .form-control:focus {
+            color: #9c226f;
+            box-shadow: 0 0 5px rgba(33, 53, 85, 0.3);
+        }
+
+        .btn-primary {
+            color: #9c226f;
+            border: none;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+
+        .highlight {
+            color: #6666ff;
+            font-weight: 600;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>            
+        <!--Veerti-->
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            margin-top: 0%;
+          }
+          body {
+            margin: 0;
+            text-align: center; 
+          }
+          .navigationbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #f8f7fc; /* Light Background */
+            padding: 12px 20px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            position: fixed; /* Fixes navbar to the top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensures navbar is above other elements */
+          }
+          .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+  
+          .logo-icon {
+            width: 32px;
+            height: 32px;
+          }
+  
+          .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #9C27B0;
+            text-decoration: none;
+          }
+  
+          .buddyverse {
+            color: #9C27B0;
+            font-weight: 800;
+          }
+          .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+          .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+          }
+          .nav-links b:hover {
+            color: #ff00bf;
+          }
+        </style>
+            <nav class="navigationbar">
+              <div class="logo">
+                <img src="images/black_BuddyVerse.png" alt="Logo" class="logo-icon">
+                  <span class="buddyverse"style="color: #9c226f;">BUDDYVERSE</span>
+                </a>
+              </div> 
+              <ul class="nav-links">
+                <li><a href="/home-Buddy" style="color: #9c226f;"><b>Home</b></a></li>
+                <li><a href="/buddy-redirect-to-stream" style="color: #9c226f;"><b>Study Material</b></a></li>
+                <li><a href="/profile-Buddy" style="color: #9c226f;"><b><%= BuddyName %></b></a></li>
+              </ul>
+            </nav>
+            <!--Veerti-->
+  
+      </nav>
+      </header> 
+
+    <div class="container">
+        <h2><span class="highlight">Register</span> for the Event</h2>
+        <form id="eventRegForm">
+            <div class="form-group">
+              <label for="first-name">First Name:</label>
+              <input type="text" id="first-name" name="firstName" class="form-control" required>
+              <div class="invalid-feedback" id="firstName-error"></div>
+            </div>
+              
+            <div class="form-group">
+              <label for="last-name">Last Name:</label>
+              <input type="text" id="last-name" name="lastName" class="form-control" required>
+              <div class="invalid-feedback" id="lastName-error"></div>
+            </div>
+              
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+              <div class="invalid-feedback" id="email-error"></div>
+            </div>
+              
+            <div class="form-group">
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone" class="form-control" required>
+              <div class="invalid-feedback" id="phone-error"></div>
+            </div>
+              
+
+            <!-- Hidden Inputs for Event Details -->
+            <input type="hidden" name="event" id="event">
+            <input type="hidden" name="startDate" id="startDate">
+            <input type="hidden" name="endDate" id="endDate">
+            <input type="hidden" name="type" id="type">
+            <input type="hidden" name="location" id="location">
+            <input type="hidden" name="about" id="about">
+            
+            <div id="errmessages">
+              <% if (Object.keys(errmessages).length > 0) { %>
+                <% Object.keys(errmessages).forEach(function (type) { %>
+                  <% errmessages[type].forEach(function (errmessage) { %>
+                    <div class="alert alert-<%= type %>">
+                      <%= errmessage %>
+                    </div>
+                  <% }) %>
+                <% }) %>
+              <% } %>
+            </div>
+
+            <button type="submit" style="border-color:#9c226f;" class="button button-accent" style="font-size:1rem;">
+                Register
+            </button>
+        </form>
+    </div>
+    <style>
+        .popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+.error-msg {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+    </style>
+<!-- Success Popup -->
+<div id="successPopup" class="popup">
+    <div class="popup-content">
+      <h2>🎉 Registration Successful!</h2>
+      <p>Your event registration was successful!</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+  
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Branding & Logo -->
+            <div class="footer-branding">
+                <img src="/images/white_BuddyVerse.png" alt="BuddyVerse Logo">
+                <div>
+                    <h4><b>BuddyVerse</b></h4>
+                    <p>Our mission is to ensure that every newcomer feels welcomed, empowered, and ready<br>to conquer their academic journey.</p>
+                </div>
+            </div>
+    
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h5>CONTACT US</h5>
+                <p><i class="bi-globe"></i> Colaba, Mumbai</p>
+                <p><i class="bi-phone-fill"></i> <a href="tel:+917764839402">+91 77648 39402</a></p>
+            </div>
+        </div>
+    
+        <!-- Separator Line -->
+        <hr class="footer-line">
+    
+        <!-- Social Media & Copyright -->
+        <div class="footer-bottom">
+            
+            <p>© 2025 by <span>BuddyVerse</span> | All Rights Reserved</p>
+        </div>
+    </footer>
+  
+    <!-- CSS -->
+    <style>
+        /* Footer Base Styles */
+        .footer {
+            background-image: url('/images/footer.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 20px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+    
+        /* Footer Container */
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+    
+        /* Branding */
+        .footer-branding {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            margin-left: 1px ;
+        }
+    
+        .footer-branding img {
+            height: 100px;
+            margin-right: 15px;
+        }
+    
+        .footer-branding h4 {
+            color: #8a75ff;
+            margin: 0;
+        }
+    
+        .footer-branding p {
+            text-transform: uppercase;
+            font-size: 12px;
+            opacity: 0.8;
+            margin: 0;
+        }
+    
+        /* Contact Section */
+        .footer-contact {
+            text-align: right;
+        }
+    
+        .footer-contact h5 {
+            color: #8a75ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        .footer-contact p {
+            margin: 5px 0;
+        }
+    
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+    
+        .footer-contact a:hover {
+            color: #8a75ff;
+        }
+    
+        /* Separator Line */
+        .footer-line {
+            border: none;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 100%;
+            margin: 30px 0;
+        }
+    
+        /* Social Media Icons */
+        .footer-bottom {
+            text-align: center;
+        }
+    
+        .social-icons {
+            margin-bottom: 15px;
+        }
+    
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 18px;
+            color: white;
+            transition: 0.3s;
+        }
+    
+        .social-icons a:hover {
+            color: #8a75ff;
+            transform: scale(1.1);
+        }
+    
+        .footer-bottom p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    
+        .footer-bottom span {
+            color: #8a75ff;
+            font-weight: bold;
+        }
+      </style>
+
+  <script>
+    const form = document.getElementById("eventRegForm");
+  
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault(); // prevent page reload
+  
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+  
+      try {
+        const response = await fetch("/submitregi-Buddy", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+      
+        if (response.ok) {
+          document.getElementById("successPopup").style.display = "block";
+          form.reset();
+          // Clear any previous error messages
+          document.getElementById("errmessages").innerHTML = "";
+        } else {
+          // Expecting the server to return a JSON object with an "errmessages" property
+          const result = await response.json();
+          let errHtml = "";
+          if (result.errmessages) {
+            Object.keys(result.errmessages).forEach(type => {
+              result.errmessages[type].forEach(message => {
+                errHtml += `<div class="alert alert-${type}">${message}</div>`;
+              });
+            });
+          } else {
+            errHtml = `<div class="alert alert-danger">Registration failed. Try again.</div>`;
+          }
+          document.getElementById("errmessages").innerHTML = errHtml;
+        }
+      } catch (error) {
+        console.error("Error:", error.message);
+        document.getElementById("errmessages").innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
+      }
+    });
+  
+    function closePopup() {
+      document.getElementById("successPopup").style.display = "none";
+    }
+  </script>
+  
+  
+    
+
+    <script>
+        // Function to get URL query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // On page load, capture event details (if any) and add them to the hidden input fields
+        window.onload = function () {
+            const event = getQueryParam('event');
+            const startDate = getQueryParam('startDate');
+            const endDate = getQueryParam('endDate');
+            const type = getQueryParam('type');
+            const location = getQueryParam('location');
+            const about = getQueryParam('about');
+
+            // Set the values of the hidden inputs with the event and date information
+            if (event && startDate && endDate && type && location && about) {
+                document.getElementById('event').value = event;
+                document.getElementById('startDate').value = startDate;
+                document.getElementById('endDate').value = endDate;
+                document.getElementById('type').value = type;
+                document.getElementById('location').value = location;
+                document.getElementById('about').value = about;
+            }
+        }
+    </script>
+        <!-- Vendor JS Files -->
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="/js/main.js"></script>
+</body>
+
+</html>

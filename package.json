@@ -1,0 +1,39 @@
+{
+  "name": "Bud-Portal-Final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.19.1",
+    "bootstrap-icons": "^1.8.0",
+    "boxicons": "^2.1.1",
+    "Bud-Portal-Final": "file:",
+    "cloudinary": "^2.6.0",
+    "connect-flash": "^0.1.1",
+    "convert-excel-to-json": "^1.7.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.2",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "^9.0.1",
+    "mongod": "^2.0.0",
+    "mongoose": "^8.12.1",
+    "multer": "^1.4.4",
+    "multer-gridfs-storage": "^5.0.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

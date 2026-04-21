@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Register A Buddy</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/boxicons/css/boxicons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/remixicon/remixicon.css" rel="stylesheet" type="text/css">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>  
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+            <a href="/admin-dashboard" class="logo d-flex align-items-center mx-3">
+                <img src="images/black_BuddyVerse.png" alt="Logo" class="logo-icon">
+                <span class="buddyverse"style="color: #9c226f;">BUDDYVERSE</span>
+            </a>
+        </div>
+        <!-- End Logo -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <!-- End Messages Nav -->
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+
+                        <span class="d-none d-md-block dropdown-toggle ps-2"style="color: #9c226f;">
+              <%=adminUsername%>
+            </span>
+                    </a>
+                    <!-- End Profile Image Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6>
+                                <%=adminUsername%>
+                            </h6>
+
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/admin-profile">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/admin-logout">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Log-Out</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <!-- End Profile Dropdown Items -->
+                </li>
+                <!-- End Profile Nav -->
+
+            </ul>
+        </nav>
+        <!-- End Icons Navigation -->
+
+    </header>
+    <!-- End Header --> 
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <!-- Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin-dashboard">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- End Dashboard Nav -->
+
+            <!-- Users Nav -->
+            <li class="nav-item">
+                <a class="nav-link" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-person"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="users-nav" class="sidebar-nav nav-content collapse show" data-bs-parent="#sidebar-nav">
+                    
+                    <!-- Add Users -->
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-target="#add-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Add Users</span>
+                        </a>
+                        <ul id="add-nav" class="nav-content collapse show" data-bs-parent="#users-nav">
+                            <li>
+                                <a class="active" href="/register-Buddy">
+                                    <i class="bi bi-circle"></i><span>Buddy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register-Bud">
+                                    <i class="bi bi-circle"></i><span>Bud</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- Delete Users -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-square"></i><span>Delete Users</span>
+                        </a>
+                        <ul id="delete-nav" class="nav-content collapse" data-bs-parent="#users-nav">
+                            <li>
+                                <a href="/unregister-Buddy">
+                                    <i class="bi bi-circle"></i><span>Buddy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/unregister-Bud">
+                                    <i class="bi bi-circle"></i><span>Bud</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Users Nav -->
+
+            <!-- Event Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#events-nav" data-bs-toggle="collapse" href="#">
+                    <i style="font-size: medium;" class='bx bx-notepad'></i><span>Event</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="events-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/admin-add-new-event">
+                            <i class="bi bi-circle"></i><span>Add</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin-view-all-events">
+                            <i class="bi bi-circle"></i><span>View</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- End Events Nav -->
+
+            <!-- Randomizer Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/randomizer">
+                    <i class="bi-tornado"></i>
+                    <span>Randomizer</span>
+                </a>
+            </li>
+            <!-- End Randomizer Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/insights">
+                    <i class="bi-tornado"></i>
+                    <span>Insights</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/file-upload">
+                    <i class="bi-tornado"></i>
+                    <span>File Uploader</span>
+                </a>
+            </li>
+        </ul>
+
+    </aside>
+    <!-- End Sidebar-->
+
+    <!-- ======= Main ======= -->
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <% if (Object.keys(errmessages).length > 0) { %>
+                <div class="errmessages">
+                  <% Object.keys(errmessages).forEach(function (type) { %>
+                    <% errmessages[type].forEach(function (errmessage) { %>
+                      <div class="alert alert-<%= type %>">
+                        <%= errmessage %>
+                      </div>
+                    <% }) %>
+                  <% }) %>
+                </div>
+              <% } %>
+                <h1     style="color: #9c226f";>Admin Dashboard</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin-dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/register-Buddy">Add Buddy</a></li>
+                    </ol>
+                </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <div class="container">
+
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-10 d-flex flex-column align-items-center justify-content-center">
+
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="pt-4 pb-2">
+                                        <h5 class="card-title text-center pb-0 fs-4">Create a Buddy User</h5>
+                                    </div>
+
+                                    <form class="row g-3 mx-4 mt-2 mb-3 needs-validation" method="post" action="/register-Buddy" novalidate>
+
+                                        <!--Full Name-->
+                                        <div class="col-12">
+                                            <label for="BuddyName" class="form-label">Full Name</label>
+                                            <input type="text" name="BuddyName" placeholder="Enter Full Name" class="form-control" id="BuddyName" required value="<%= formData.BuddyName || '' %>">
+                                            <div class="invalid-feedback">Please enter your Full Name!</div>
+                                        </div>
+
+                                        <!--User Email-->
+                                        <div class="col-12">
+                                            <label for="BuddyEmail" class="form-label">Email</label>
+                                            <input type="email" name="BuddyEmail" placeholder="Enter Email" class="form-control" id="BuddyEmail" required value="<%= formData.BuddyEmail || '' %>">
+                                            <div class="invalid-feedback">Please enter a valid Email!</div>
+                                        </div>
+
+                                        <!--User Number-->
+                                        <div class="col-12">
+                                            <label for="BuddyContactNumber" class="form-label">Phone Number</label>
+                                            <input type="tel" name="BuddyContactNumber" placeholder="Enter Phone Number" class="form-control" id="BuddyContactNumber" required value="<%= formData.BuddyContactNumber || '' %>">
+                                            <div class="invalid-feedback">Please enter a valid Phone Number!</div>
+                                        </div>
+
+                                        <!--User Stream-->  
+                                        <div class="col-12">
+                                            <label for="BuddyStream" class="form-label">Stream</label>
+                                            <select class="form-select" name="BuddyStream" aria-label="Stream selection" id="BuddyStream" required>
+                                                <option selected disabled value="">Select</option>
+                                                <option value="BCom"<%= formData.BuddyStream === 'BCom' ? 'selected' : '' %>>BCom</option>
+                                                <option value="BAF"<%= formData.BuddyStream === 'BAF' ? 'selected' : '' %>>BAF</option>
+                                                <option value="BBI"<%= formData.BuddyStream === 'BBI' ? 'selected' : '' %>>BBI</option>
+                                                <option value="BFM"<%= formData.BuddyStream === 'BFM' ? 'selected' : '' %>>BFM</option>
+                                                <option value="BMS"<%= formData.BuddyStream === 'BMS' ? 'selected' : '' %>>BMS</option>
+                                                <option value="BA"<%= formData.BuddyStream === 'BA' ? 'selected' : '' %>>BA</option>
+                                                <option value="BAMMC"<%= formData.BuddyStream === 'BAMMC' ? 'selected' : '' %>>BAMMC</option>
+                                                <option value="BAFTNMP"<%= formData.BuddyStream === 'BAFTNMP' ? 'selected' : '' %>>BAFTNMP</option>
+                                                <option value="BSc"<%= formData.BuddyStream === 'BSc' ? 'selected' : '' %>>BSc</option>
+                                                <option value="BSc(BioTech)"<%= formData.BuddyStream === 'BSc(BioTech)' ? 'selected' : '' %>>BSc(BioTech)</option>
+                                                <option value="BSc(CS)"<%= formData.BuddyStream === 'BSc(CS)' ? 'selected' : '' %>>BSc(CS)</option>
+                                                <option value="BSc(IT)"<%= formData.BuddyStream === 'BSc(IT)' ? 'selected' : '' %>>BSc(IT)</option>
+                                                <option value="BSc(Data Science & BA)"<%= formData.BuddyStream === 'BSc(Data Science & BA)' ? 'selected' : '' %>>BSc(Data Science & BA)</option>
+                                                <option value="BVoc(Sports & EM)"<%= formData.BuddyStream === 'BVoc(Sports & EM)' ? 'selected' : '' %>>BVoc(Sports & EM)</option>
+                                                <option value="BVoc(Web Technologies)"<%= formData.BuddyStream === 'BVoc(Web Technologies)' ? 'selected' : '' %>>BVoc(Web Technologies)</option>
+                                            </select>
+                                            <div class="invalid-feedback">Please select an option!</div>
+                                        </div>
+
+                                        <!--Bud Year-->
+                                        <div class="col-12">
+                                            <label for="BuddyYear" class="form-label">Buddy Year</label>
+                                            <select class="form-select" name="BuddyYear" aria-label="Stream selection" id="BuddyYear" required>
+                                                <option selected disabled value="">Select</option>
+                                                <option value="TY" <%= formData.BuddyYear === 'TY' ? 'selected' : '' %>>TY</option>
+                                            </select>
+                                        </div>
+
+                                        <!--User ID-->
+                                        <div class="col-12">
+                                            <label for="BuddyID" class="form-label">Buddy ID</label>
+                                            <input type="text" name="BuddyID" placeholder="Enter Buddy ID" class="form-control" id="BuddyID" required value="<%= formData.BuddyID || '' %>">
+                                            <div class="invalid-feedback">Please enter a valid Buddy ID!</div>
+                                        </div>
+
+                                        <!--User Password-->
+                                        <div class="col-12">
+                                            <label for="BuddyPassword" class="form-label">Password</label>
+                                            <input type="password" name="BuddyPassword" placeholder="Enter Password" class="form-control" id="BuddyPassword" required>
+                                            <div class="invalid-feedback">Please enter a valid Password!</div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-10 d-flex flex-column">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="pt-4 pb-2 mx-3">
+                                        <h5 class="card-title text-center pb-0 fs-4">Create Multiple Buddy Users</h5>
+                                        <h6 class="card-title text-center pb-0 fs-5">Instructions for file format:</h6>
+                                        <p class="pb-0 fs-6">
+                                            Step 1: Click the Download button below to download the template.<br> Step 2: We've filled a few rows for your understanding.<br> Step 3: Clear out all the fields leaving the header that is the first row<br>Step 4: Enter your data in the sheet and submit it!
+                                        </p>
+                                        <a class="btn btn-primary w-100" href="/uploads/files/Buddy.xlsx">Download</a>
+                                    </div>
+                                    <form class="row g-3 mx-2 my-3 needs-validation" method="post" enctype="multipart/form-data" action="/multiple-Buddy-register" novalidate>
+                                        <div class="mb-3">
+                                            <label for="uploadfile" class="form-label">Enter the excel sheet below</label>
+                                            <input type="file" name="uploadfile" class="form-control" id="uploadfile" accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel' required>
+                                            <div class="invalid-feedback">Please enter a valid File Format!</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100" type="submit">Create Accounts</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Main -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+
+
+</body>
+
+</html>

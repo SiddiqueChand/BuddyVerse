@@ -1,0 +1,154 @@
+/* From Uiverse.io by eduardo-amaro-maciel */
+/* Individual card container */
+.con {
+  flex: 0 0 450px; /* Each card takes up 450px */
+  margin-right: 20px; /* Space between cards */
+}
+
+.crd {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  background: #000;
+  border-radius: 15px;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjust other styles as needed */
+.face {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face.back {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.face.back b {
+  margin: 0;
+  padding: 0;
+}
+
+.face.back .desc {
+  background-color: #eee;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.face.front {
+  transition: 0.5s;
+}
+
+.face.front b {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  color: #fff;
+  transition: 0.5s;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.crd:hover .face.front {
+  height: 60px;
+}
+
+.crd:hover .face.front b {
+  font-size: 2em;
+}
+
+.face.front {
+  background-color: #0cbaba;
+  border-radius: 15px;
+}
+
+/* General adjustments */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.crd-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Text overlay */
+.txt-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  opacity: 1; /* Visible by default */
+}
+
+/* Back content hidden initially */
+.face.back .contnt {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* Show text on hover */
+.crd:hover .face.front .txt-overlay {
+  opacity: 0; /* Fade out front text */
+}
+
+.crd:hover .face.back .contnt {
+  opacity: 1; /* Fade in back text */
+}
+
+/* Moving slideshow styles */
+.tech-slideshow {
+  height: 450px;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.tech-slideshow .mover-1 {
+  height: 100%;
+  display: flex;
+  width: calc(450px * 9); /* Total width for 3 cards + duplicates */
+  animation: moveSlideshow 15s linear infinite;
+}
+
+.tech-slideshow:hover .mover-1 {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+/* Animating the slideshow */
+@keyframes moveSlideshow {
+  0% {
+    transform: translateX(0); /* Start with all cards visible */
+  }
+  100% {
+    transform: translateX(calc(-450px * 6.2)); /* Slide halfway to show the loop */
+  }
+}
+
+
+
+
+

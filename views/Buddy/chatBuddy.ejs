@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buddy Chat</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #eae6df;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 20%;
+      background: #ffffff;
+      border-right: 1px solid #ccc;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar h3 {
+      margin: 0 0 15px 0;
+      color: #9c226f;
+      text-align: center;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .user:hover {
+      background: #f3f3f3;
+    }
+
+    .user .avatar {
+      width: 40px;
+      height: 40px;
+      background: #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    .user .avatar i {
+      font-size: 20px;
+      color: #555;
+    }
+
+    .user span {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .notification {
+      width: 12px;
+      height: 12px;
+      background: #9c226f;
+      border-radius: 50%;
+      position: absolute;
+      right: 15px;
+      top: 18px;
+      display: none;
+    }
+
+    /* Chat Window */
+    .chat-window {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      background: #f4f4fc;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      background: #9c226f;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .chat-header .avatar {
+      width: 40px;
+      height: 40px;
+      background: #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    .chat-header .avatar i {
+      font-size: 20px;
+      color: #fff;
+    }
+
+    #chatWith {
+      font-weight: bold;
+    }
+
+    /* Messages */
+    #messages {
+      list-style: none;
+      padding: 15px;
+      overflow-y: auto;
+      flex-grow: 1;
+      max-height: 75vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message {
+      padding: 12px 15px;
+      border-radius: 20px;
+      max-width: 60%;
+      word-wrap: break-word;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .self {
+      background-color: #c9c9fd;
+      align-self: flex-end;
+      text-align: right;
+      border-bottom-right-radius: 2px;
+    }
+
+    .other {
+      background-color: #ffffff;
+      align-self: flex-start;
+      text-align: left;
+      border-bottom-left-radius: 2px;
+    }
+
+    .timestamp {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 5px;
+      display: block;
+    }
+
+    /* Chat Input */
+    #form {
+      display: flex;
+      padding: 10px;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      align-items: center;
+    }
+
+    #input {
+      flex-grow: 1;
+      padding: 12px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+      margin-right: 8px;
+      font-size: 16px;
+    }
+
+    #send, #sendFile {
+      padding: 12px;
+      background: #9c226f;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #send i, #sendFile i {
+      font-size: 18px;
+    }
+
+    #sendFile {
+      background: #9c226f;
+      margin-right: 8px;
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 40%;
+      }
+
+      .chat-window {
+        width: 60%;
+      }
+
+      .message {
+        max-width: 80%;
+      }
+    }
+
+    
+          /* Sidebar Header - Center Align Back Icon & Chats */
+          .sidebar-header {
+      display: flex;
+      align-items: center; /* Perfectly aligns vertically */
+      gap: 10px; /* Space between icon and text */
+      padding-bottom: 10px;
+    }
+
+    /* Back Icon */
+    .back-btn {
+      color: #9c226f;
+      font-size: 26px; /* Increased size for better balance */
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex; 
+      align-items: center; /* Ensures vertical alignment */
+    }
+
+    .back-btn:hover {
+      color: #7c1a58;
+    }
+
+    /* Chats Title */
+    .sidebar-header h1 {
+      font-size: 26px; /* Increased size */
+      margin: 0;
+      color: #9c226f;
+      font-weight: bold;
+      line-height: 1;
+      display: flex;
+      margin-left: 80px ;
+      align-items: center; /* Ensures proper vertical alignment */
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <a href="/home-Buddy" class="back-btn">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1>Chats</h1>
+      </div>
+      <% Buds.forEach(bud => { %>
+        <div class="user" onclick="selectChat('<%= bud.BudID %>', '<%= bud.BudName %>')">
+          <div class="avatar">
+            <i class="fa fa-user"></i>
+          </div>
+          <span><%= bud.BudName %></span>
+          <span class="notification" id="notif-<%= bud.BudID %>"></span>
+        </div>
+      <% }) %>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="chat-window">
+      <div class="chat-header">
+        <div class="avatar">
+          <i class="fa fa-user"></i>
+        </div>
+        <span id="chatWith">Chat with Bud</span>
+      </div>
+      <ul id="messages"></ul>
+      <form id="form">
+        <button type="button" id="sendFile"><i class="fa fa-paperclip"></i></button>
+        <input type="file" id="fileInput" />
+        <input id="input" autocomplete="off" placeholder="Type a message..." required />
+        <button id="send" type="submit"><i class="fa fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  
+  
+    const socket = io();
+    // Register current user using BuddyID (unique identifier)
+    let currentUser = "<%= BuddyID %>";
+    let selectedUser = '';
+    const notifications = {}; // Store notification state for each user
+
+    // Load notifications from localStorage on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      Object.keys(localStorage).forEach(user => {
+        if (localStorage.getItem(user) === "true") {
+          const notifElement = document.getElementById(`notif-${user}`);
+          if (notifElement) notifElement.style.display = 'inline-block';
+        }
+      });
+    });
+  
+    socket.emit('register', currentUser);
+  
+    // Updated selectChat function accepts both ID and name.
+    function selectChat(userId, userName) {
+      selectedUser = userId;
+      document.getElementById('chatWith').textContent = userName;
+      document.getElementById('messages').innerHTML = '';
+      socket.emit('get history', { to: userId });
+    
+      // Hide notification when opening chat
+      const notifElement = document.getElementById(`notif-${userId}`);
+      if (notifElement) {
+        notifElement.style.display = 'none';
+      }
+      localStorage.setItem(userId, "false");
+      notifications[userId] = false;
+}
+
+    // Function to add a notification dot when a message is received
+    function addNotification(sender) {
+      if (sender !== selectedUser) {
+        notifications[sender] = true;
+        const notifElement = document.getElementById(`notif-${sender}`);
+        if (notifElement) {
+          notifElement.style.display = 'inline-block';
+        }
+        localStorage.setItem(sender, "true");
+      }
+    }
+  
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value && selectedUser) {
+        socket.emit('private message', { to: selectedUser, message: input.value });
+        input.value = '';
+      }
+    });
+
+    // File upload using HTTP endpoint with Multer.
+    document.getElementById('sendFile').addEventListener('click', () => {
+      document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file || !selectedUser) return;
+      
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+        if (data.fileUrl) {
+          // Emit the file URL via Socket.IO.
+          socket.emit('private file', {
+            to: selectedUser,
+            fileName: data.fileName,
+            fileData: data.fileUrl
+          });
+        } else {
+          console.error('File upload failed:', data.error);
+        }
+      } catch (error) {
+        console.error('Error uploading file:', error);
+      }
+    });
+
+    socket.on('chat history', ({ messages: history }) => {
+      messages.innerHTML = '';
+      history.forEach(({ sender, message, timestamp, type, fileName }) => {
+        const li = document.createElement('li');
+        li.className = sender === currentUser ? 'self message' : 'other message';
+        if (type === 'file') {
+          li.innerHTML = `<div><a href="${message}" download="${fileName}">${fileName}</a></div>
+                          <div class="timestamp">${new Date(timestamp).toLocaleTimeString()}</div>`;
+        } else {
+          li.innerHTML = `<div>${message}</div>
+                          <div class="timestamp">${new Date(timestamp).toLocaleTimeString()}</div>`;
+        }
+        messages.appendChild(li);
+      });
+      messages.scrollTop = messages.scrollHeight;
+    });
+  
+    socket.on('private message', ({ sender, message }) => {
+      if (sender === selectedUser || sender === currentUser) {
+        const li = document.createElement('li');
+        li.className = sender === currentUser ? 'self message' : 'other message';
+        li.innerHTML = `<div>${message}</div>
+                        <div class="timestamp">${new Date().toLocaleTimeString()}</div>`;
+        messages.appendChild(li);
+        messages.scrollTop = messages.scrollHeight;
+      } else {
+        addNotification(sender);
+      }
+    });
+
+    socket.on('private file', ({ sender, fileName, fileData }) => {
+      if (sender === selectedUser || sender === currentUser) {
+        const li = document.createElement('li');
+        li.className = sender === currentUser ? 'self message' : 'other message';
+        li.innerHTML = `<div><a href="${fileData}" download="${fileName}">${fileName}</a></div>
+                        <div class="timestamp">${new Date().toLocaleTimeString()}</div>`;
+        messages.appendChild(li);
+        messages.scrollTop = messages.scrollHeight;
+      } else {
+        addNotification(sender);
+      }
+    });
+  </script>
+
+</body>
+</html>
